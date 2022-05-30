@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RockBand.Entities.News>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<table class="table"style="background-color:white">
+    <thead>
+        <tr>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRegister)
+            </td>
+            <td>
+                
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

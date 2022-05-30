@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using RockBand.Data
+@{ ViewData["Title"] = "Home Page"; }
+
+
+<style>
+
+
+
+    body {
+        background-image: url("/Images/home.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+</style>
+<body >
+    
+</body>
+<div class="modal fade" id="UserLoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <partial name="_UserLoginPartial">
+</div>
+
+<div class="modal fade" id="UserRegistrationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <partial name="_UserRegistrationPartial">
+</div>
+
+    @section Scripts{
+        <script src="~/js/UserRegistration.js"></script>
+        <script asp-append-version="true" src="~/js/UserLogin.js"></script>
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    }

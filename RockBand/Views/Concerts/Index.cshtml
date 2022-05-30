@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@using RockBand.Data
+@model IEnumerable<RockBand.Entities.Concert>
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+
+
+<h1>Concert</h1>
+
+<
+<table class="table"style="background-color:white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venues)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRegister)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cities)
+                </td>
+                <td>
+                    <img class="embed-responsive img-thumbnail" style="width:300px" src="@item.Venues">
+                    @*@Html.DisplayFor(modelItem => item.Venues)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRegister)
+                </td>
+                <td>
+    
+
+          
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore
+@using RockBand.Data
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User) && await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "admin"))
+{
+    <li class="nav-item dropdown" show>
+        <a class=" dropdown-toggle nav-link" href="#" data-toggle="dropdown">Admin</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" asp-area="Admin" asp-controller="New" asp-action="Index">News</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Sugestion" asp-action="Index">Suggestions</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Concerts" asp-action="Index">Concerts</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="AlbumSingle" asp-action="Index">Discorgrapghy</a>
+        </div>
+    </li>
+}

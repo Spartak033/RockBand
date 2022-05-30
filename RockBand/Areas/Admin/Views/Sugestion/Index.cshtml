@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RockBand.Entities.Sugestions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Suggestion</h1>
+
+
+<table class="table " style="background-color:white" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Suggestion)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suggestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

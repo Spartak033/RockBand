@@ -1,0 +1,54 @@
+﻿@model IEnumerable<RockBand.Entities.Concert>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table"style="background-color:white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venues)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRegister)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cities)
+            </td>
+            <td>
+                <img class="embed-responsive img-thumbnail" style="width:300px" src="@item.Venues">
+                @*@Html.DisplayFor(modelItem => item.Venues)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRegister)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
